@@ -14,5 +14,5 @@ JSON = {"job": "ElConfig", "time": [{"start": 1633896000, "end": 1633899600}], "
 
 
 JSON = {"method":"get", "table": "MeterTable"}
-lol = Setup(JSON=JSON, API="meter_db_settings", type_connect='ssh')
+answer = Setup(JSON=JSON, API="meter_db_settings", type_connect='ssh')
 print(lol)
