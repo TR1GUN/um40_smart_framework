@@ -10,9 +10,55 @@
 
 
 from UM40_SMART_Framework import Setup
-JSON = {"job": "ElConfig", "time": [{"start": 1633896000, "end": 1633899600}], "meters": [{"type": 94, "iface": "Ethernet", "address": "192.168.205.6:2002"}, {"type": 5, "password": "373737373737", "deviceidx": 0, "iface": "Hub", "address": "134256651", "uart": "9600,8n1"}]}
+
+
+JSON = {"method":"put", "table": "MeterTable",
+        # 'ids':[]
+        'settings': [
+{'addr': '1388',
+ 'id': 1,
+ 'ifaceCfg': '',
+ 'ifaceName': 'Iface4',
+ 'index': 1,
+ 'pId': 0,
+ 'passRd': '789456',
+ 'passWr': '1597531234567890',
+ 'rtuFider': 0,
+ 'rtuObjNum': 0,
+ 'rtuObjType': 0,
+ 'type': 42,
+ 'typeName': 'SPODES_MILUR'}
+]
+
+}
+
+# {'measures': [{'devices': [{'deviceIdx': 1, 'id': 0, 'meter': 1, 'vals': [{'tags': [{'tag': 'const', 'val': None}, {'tag': 'kI', 'val': 1.0}, {'tag': 'kU', 'val': 1.0}, {'tag': 'cArrays', 'val': 1}, {'tag': 'isAm', 'val': True}, {'tag': 'isClock', 'val': True}, {'tag': 'isDst', 'val': False}, {'tag': 'isRm', 'val': True}, {'tag': 'isRp', 'val': True}, {'tag': 'isTrf', 'val': True}, {'tag': 'model', 'val': ''}, {'tag': 'serial', 'val': '211500050411372'}], 'ts': 1635752804}]}], 'measure': 'ElConfig'}], 'res': 0}
+JSON =  {"measures": ["ElConfig"], "ids": [1], "tags": [], "time": [], "flags": [], "method": "get"}
+
+# JSON = {"method": "post", "measures": [
+#                            {"measure": "ElConfig", "devices": [
+#                             {"id": 1, "vals": [{"ts": 1635752804, "tags": [
+#                                                                            {"tag": "serial", "val": "0110188597"},
+#                                                                            {'tag': 'const', 'val': None},
+#                                                                            {'tag': 'kI', 'val': 1.0},
+#                                                                            {'tag': 'kU', 'val': 1.0},
+#                                                                            {'tag': 'cArrays', 'val': 1},
+#                                                                            {'tag': 'isAm', 'val': True},
+#                                                                            {'tag': 'isClock', 'val': True},
+#                                                                            {'tag': 'isDst', 'val': False},
+#                                                                            {'tag': 'isRm', 'val': True},
+#                                                                            {'tag': 'isRp', 'val': True},
+#                                                                            {'tag': 'isTrf', 'val': True},
+#                                                                            {'tag': 'model', 'val': ''}
+# ]}]}]}]}
 
 
 JSON = {"method":"get", "table": "MeterTable"}
+
+
+
+
 answer = Setup(JSON=JSON, API="meter_db_settings", type_connect='ssh')
-print(lol)
+
+
+print(answer)

@@ -368,12 +368,14 @@ class SetupSSH:
         # Делаем подкючение к нужному серверу
         try:
             # Конектимся
-            client.connect(hostname=str(IP_address),
+            client.connect(
+                           hostname=str(IP_address),
                            port=int(IP_port),
                            username=str(user_login),
                            password=str(user_password),
                            look_for_keys=False,
-                           allow_agent=False)
+                           allow_agent=False
+                           )
 
             # Получаем команду что дожны отправить
             cmd = self.JSON
@@ -385,6 +387,7 @@ class SetupSSH:
             # Немного перенделываем команду - чтоб запускать в баше
             '/bin/sh'
             # cmd = """ bash  " """ + cmd + """ " """
+
             print(cmd)
 
             # Отправляем нашу команду
@@ -401,6 +404,8 @@ class SetupSSH:
                 # если нет никаких ошибок , то возвращаем
                 result = data_stdout
 
+            # print(data_stderr)
+            # print(data_stdout)
             client.close()
 
             # print('ответ', result)
